@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>JSNation WEBMIDI.js Demo</title>
+
+    <!-- Libraries -->
+    <script src="node_modules/@iconfu/svg-inject/dist/svg-inject.js"></script>
+    <script src="node_modules/tiny-tween-js/dist/TinyTween.min.js"></script>
+    <script src="node_modules/tone/build/Tone.js"></script>
+    <script src="node_modules/webmidi/dist/iife/webmidi.iife.js"></script>
+
+    <!-- Styles -->
+    <style>
+      html, body { background-color: black; height: 100%; }
+      body { display: flex; justify-content: center; align-items: center}
+      h1 {font-family: sans-serif; color: white; text-align: center}
+    </style>
+
+    <!-- Code-->
+    <script defer src="index.js"></script>
+
+  </head>
+
+  <body>
+    <h1>CLICK TO START!</h1>
+    <img
+        src="images/mpk.svg"
+        style="display: none"
+        onload="SVGInject(this, {makeIdsUnique: false})">
+  </body>
+
+</html>
