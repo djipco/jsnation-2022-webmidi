@@ -1,13 +1,8 @@
 {
-  "name": "code_demo",
+  "name": "jsnation-2022-webmidi-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "main": "index.html",
+  "author": "Jean-Philippe Côté",
   "dependencies": {
     "@iconfu/svg-inject": "^1.2.3",
     "tiny-tween-js": "^0.9.5",
