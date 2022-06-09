@@ -1,11 +1,11 @@
 let sampler;
 
-// We need a human gesture for audio playback to be enabled.
+// We need a human gesture for audio context to be enabled.
 document.body.addEventListener("click", setup);
 
 function setup() {
 
-  // Remove listener, hide click messages and display device
+  // Remove listener, hide click prompt and display device svg
   document.querySelector("h1").style.display = "none";
   document.querySelector("svg").style.display = "block";
   document.body.removeEventListener("click", setup);
@@ -25,13 +25,13 @@ function setup() {
     }
   }).toDestination();
 
-  // Since we are using it live, we do not want Tone.js to look ahead
+  // Since we are using it live, we do not want Tone.js to use look ahead
   Tone.context.lookAhead = 0;
 
   // Enable WebMidi
   WebMidi.enable()
     .then(onMidiReady)
-    .catch(err => console.error("WebMidi could not be enabled!"));
+    .catch(console.error);
 
 }
 
@@ -47,19 +47,18 @@ function onMidiReady() {
     sampler.triggerAttack(e.note.identifier);
 
     // Flash pad
-    const map = { 40: 1, 41: 2, 42: 3, 43: 4, 36: 5, 37: 6, 38: 7, 39: 8 };
-    const pad = document.getElementById("pad" + map[e.note.number]);
+    const map = { "E2": 1, "F2": 2, "F#2": 3, "G2": 4, "C2": 5, "C#2": 6, "D2": 7, "D#2": 8 };
+    const pad = document.getElementById("pad" + map[e.note.identifier]);
     pad.style.opacity = "1";
 
     // Fade out the opacity
     new TinyTween({
-      target: pad,
-      from: {'style.opacity': 1},
-      to: {'style.opacity': 0},
+      target: pad.style,
+      from: {'opacity': 1},
+      to: {'opacity': 0},
       duration: 350
     });
 
   });
 
 }
-
